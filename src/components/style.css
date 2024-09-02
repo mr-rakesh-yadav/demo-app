@@ -1,0 +1,182 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 10px 20px;
+  color: #000;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar__logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.navbar__brand {
+  margin-left: 10px;
+}
+
+.navbar__title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar__subtitle {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #000;
+}
+
+.navbar__menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__item {
+  position: relative;
+}
+
+.navbar__link {
+  text-decoration: none;
+  color: #000;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0;
+  transition: color 0.3s;
+}
+
+.navbar__link:hover {
+  color: #1abc9c;
+}
+
+.navbar__icon {
+  font-size: 1.2rem;
+}
+
+.navbar__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #f7f7f7;
+  padding: 10px 0;
+  list-style: none;
+  min-width: 150px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.navbar__item:hover .navbar__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.navbar__dropdown-item {
+  padding: 0;
+}
+
+.navbar__dropdown-link {
+  display: block;
+  padding: 8px 20px;
+  color: #000;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.navbar__dropdown-link:hover {
+  background-color: #1abc9c;
+  color: #000;
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar__hamburger-icon {
+  display: none;
+}
+.navbar__login-button {
+  text-decoration: none;
+  color: #fff;
+  background-color: #1abc9c;
+  padding: 8px 15px;
+  border-radius: 25px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s;
+}
+
+.navbar__login-button:hover {
+  background-color: #16a085;
+}
+
+/* 
+  Task to write Media Query for small and medium devices
+  TODO: 
+  - Hides the main menu and displays the hamburger icon
+  - Shows the menu items in a dropdown when the hamburger is clicked
+*/
+@media (max-width: 960px) {
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .navbar__menu {
+    display: none;
+  }
+
+  .navbar__menu-active {
+    display: block;
+    position: absolute;
+    top: 74px;
+    left: 0px;
+    width: 100%;
+    z-index: 99;
+    background: #f7f7f7;
+    align-items: baseline;
+    padding: 1rem 0rem 1rem 1rem;
+  }
+
+  .navbar__dropdown {
+    left: 0px;
+    background-color: #f7f7f7;
+    min-width: 150px;
+  }
+  .navbar__item:hover .navbar__dropdown {
+    opacity: 1;
+    z-index: 99;
+    visibility: visible;
+    transform: translateY(10);
+  }
+
+  .navbar__right {
+    margin-top: 20px;
+  }
+  .navbar__hamburger-icon {
+    display: inline;
+  }
+}
